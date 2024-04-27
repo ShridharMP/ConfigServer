@@ -3,4 +3,18 @@ server:
   
 spring:
    application:
-      name: ConfigServer
+      name: CONFIG-SERVER
+   cloud:
+      config:
+        server:
+          git:
+           uri: https://github.com/ShridharMP/ConfigServer
+           clone-on-start: true
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
